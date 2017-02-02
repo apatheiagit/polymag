@@ -1,5 +1,4 @@
 @import url('fonts/arimo.css');
-@basic-font: 16px;
 @font-family: 'Arimo', sans-serif;
 @text-color: #FFFFFF;
 @grey-fon: #29414b;
@@ -18,11 +17,29 @@
 @mobile: ~"(max-width: 767px)";
 @tablet: ~"(min-width: 768px) and (max-width: 992px)";
 @medium: ~"(min-width: 992px) and (max-width: 1200px)";
+@medium_mobile: ~"(max-width: 1200px)";
 @mobile_tablet: ~"(max-width: 992px)";
 @small_tablet: ~"(min-width: 451px) and (max-width: 767px)";
 @smartphone: ~"(max-width: 450px)";
 
-body { background: @grey-fon; font-family: @font-family; font-size: @basic-font; font-weight: 400; color: @text-color;}
+
+
+body, html { 
+	background: @grey-fon; 
+	font-family: @font-family;  
+	font-weight: 400; 
+	color: @text-color;
+	font-size: 10px;
+	@media @medium{
+		font-size: 9px;
+	}
+	@media @tablet{
+		font-size: 8px;
+	}
+	@media @mobile{
+		font-size: 7px;
+	}
+}
 h1,h2,h3,h4,h6,h6,p,ul,li {margin: 0; padding:0px; }
 a, a:hover { color: inherit; text-decoration: none;}
 a:focus {  color: inherit; text-decoration: none;}
@@ -36,6 +53,8 @@ a:focus {  color: inherit; text-decoration: none;}
 	& .container{
 		padding-top: 30px;
 		padding-bottom: 30px;
+		font-size: 16px;
+
 	}
 }
 .copyright{
@@ -76,6 +95,70 @@ a:focus {  color: inherit; text-decoration: none;}
 .contacts-map{
 	width: 100%;
 	height: 800px;
+	z-index: 50;
+	@media @mobile{
+		height: 1200px;
+	}
+}
+.section-contacts{
+	position: relative;
+	& .top-container{
+		position: absolute;
+		top: 0;
+		z-index: 100;
+		width: 100%;
+	}
+}
+.section-title{
+	font-size: 5.5rem;
+	font-weight: 400;
+	padding: 6.5rem 0;
+	text-transform: uppercase;
+	&--dark{
+		color: @gray;
+	}
+}
+.contacts-block{
+	background: linear-gradient(to bottom, #c4dee8, #a2c6d4);
+	padding: 5rem 1rem 5rem 8rem;
+	@media @medium_mobile{
+		padding: 5rem 1rem 5rem 5rem;
+	}
+	& .title{
+		color: @gray;
+		font-size: 2.6rem;
+	}
+	& .paragraph{
+		position: relative;
+		font-size: 18px;
+		color: @dark-blue;
+		padding-top: 20px;
+		margin: 20px 0;
+		&:before{
+			content: "";
+			width: 80px;
+			height: 2px;
+			background-color: @dark-blue;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+}
+.feedback-btn{
+	background-color: transparent;
+	display: inline-block;
+	color: @gray;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-size: 14px;
+	border: 1px solid @gray;
+	padding: 12px 48px;
+	transition: all 0.5s ease-in;
+	&:hover{
+		background-color: @gray;
+		color: white;
+	}
 }
 
 @media @smartphone {
