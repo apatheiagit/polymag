@@ -50,11 +50,15 @@ a:focus {  color: inherit; text-decoration: none;}
 	min-height: 700px;
 }
 .footer{
+	background: @grey-fon; 
 	& .container{
 		padding-top: 30px;
 		padding-bottom: 30px;
 		font-size: 16px;
-
+		@media @mobile{
+			padding-top: 50px;
+			padding-bottom: 0px;
+		}
 	}
 }
 .copyright{
@@ -76,6 +80,7 @@ a:focus {  color: inherit; text-decoration: none;}
 	overflow: hidden;
 	position: relative;
 	padding-bottom: 10px;
+	font-size: 16px;
 	&:before{
 		background-color: @blue;
 		content: "";
@@ -94,11 +99,8 @@ a:focus {  color: inherit; text-decoration: none;}
 }
 .contacts-map{
 	width: 100%;
-	height: 800px;
-	z-index: 50;
-	@media @mobile{
-		height: 1200px;
-	}
+	height: calc(~"100% - 100px");
+	z-index: 50;	
 }
 .section-contacts{
 	position: relative;
@@ -114,8 +116,14 @@ a:focus {  color: inherit; text-decoration: none;}
 	font-weight: 400;
 	padding: 6.5rem 0;
 	text-transform: uppercase;
+	@media @mobile{
+		padding: 4.5rem 0;
+	}
 	&--dark{
 		color: @gray;
+	}
+	&--blue{
+		color: @dark-blue;
 	}
 }
 .contacts-block{
@@ -123,6 +131,9 @@ a:focus {  color: inherit; text-decoration: none;}
 	padding: 5rem 1rem 5rem 8rem;
 	@media @medium_mobile{
 		padding: 5rem 1rem 5rem 5rem;
+	}
+	@media @mobile{
+		padding: 3rem 1rem 3rem 2rem;
 	}
 	& .title{
 		color: @gray;
@@ -162,12 +173,15 @@ a:focus {  color: inherit; text-decoration: none;}
 }
 .top-menu{
 	position: fixed;
-	top: 0;
+	top: -53px;
 	background-color: @menu-fon;
 	height: 53px;
 	padding: 13px 0;	
 	z-index: 200;
 	width: 100%;
+	&--open{
+		top: 0;
+	}
 	& .email-block{
 		float: right;
 		padding: 2px 0;
@@ -259,7 +273,7 @@ a:focus {  color: inherit; text-decoration: none;}
 				color: lighten(@menu,20%);
 			}
 			&.current{
-				color: white;
+				color: white !important;
 			}
 		}		
 	}
@@ -308,7 +322,37 @@ a:focus {  color: inherit; text-decoration: none;}
 		}
 	}
 }
-
+.section-home{
+	background: url(../img/bg-header.png) no-repeat center top;
+	background-size: cover;
+	& .col-spacer-1{
+		height: 8.6rem;
+	}
+	& .col-spacer-2{
+		height: 10rem;
+	}
+	& .nav{
+		padding-top: 6px;
+		& li{
+			display: block;
+			padding: 0 0 15px 0;
+			& a{
+				color: @blue;
+				&:hover{
+					color: darken(@blue,20%);
+				}
+			}
+		}
+	}
+	& .contact-mail{
+		@media @mobile{
+			padding-top: 30px;
+		}
+	}
+	& .section-title{
+		padding: 0;
+	}
+}
 
 @media @smartphone {
   .col-st-1,.col-st-10,.col-st-11,.col-st-12,.col-st-2,.col-st-3,.col-st-4,.col-st-5,.col-st-6,.col-st-7,.col-st-8,.col-st-9{float:left}.col-st-12{width:100%}.col-st-11{width:91.66666667%}

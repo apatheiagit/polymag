@@ -1,4 +1,8 @@
 $(function(){
+  $('.section').height($(window).height());
+  $(window).resize(function(){
+    $('.section').height($(window).height());
+  });
   $('.sandwitch').click(function(){
     $('.top-menu').toggleClass('top-menu--mobile-open');
   });
