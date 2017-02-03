@@ -1,4 +1,7 @@
 $(function(){
+  $('.sandwitch').click(function(){
+    $('.top-menu').toggleClass('top-menu--mobile-open');
+  });
   $(window).scroll(function () {
       if ($(this).scrollTop() > 0) {
           $('.icon-to-top').fadeIn();
