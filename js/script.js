@@ -1,8 +1,8 @@
 $(function(){
-  sectionHeight();
+  /*sectionHeight();
   $(window).resize(function(){
     sectionHeight();
-  });
+  });*/
   $('.sandwitch').click(function(){
     $('.top-menu').toggleClass('top-menu--mobile-open');
   });

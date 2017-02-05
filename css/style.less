@@ -102,16 +102,17 @@ a:focus {  color: inherit; text-decoration: none;}
 	height: calc(~"100% - 100px");
 	z-index: 50;	
 }
+.section{
+	min-height: 700px;
+}
 .section-contacts{
 	position: relative;
+	height: 700px;
 	& .top-container{
 		position: absolute;
 		top: 0;
 		z-index: 100;
 		width: 100%;
-	}
-	@media @mobile{
-		height: 700px;
 	}
 }
 .section-title{
@@ -361,41 +362,58 @@ a:focus {  color: inherit; text-decoration: none;}
 }
 .section-services{
 	background: linear-gradient(to top, #38515b, #2e4650);
-	padding-bottom: 20px;
+	
 	& .section-services-plus{
-		background: url(../img/bg-solution.png) no-repeat top center;
-		background-size: contain;
+		background: url(../img/bg-solution.png) no-repeat center -48px;
+		
 		height: 100%;
+		@media @medium_mobile{
+			background-size: contain;
+		}
+		& .container{
+			background: url(../img/line.png) no-repeat center -42px;
+			padding-bottom: 40px;
+			@media @medium_mobile{
+				background: none;
+			}
+		}
 	}
 }
 & .tablet-row{
-	@media @mobile_tablet{
-		margin-left: 0;
-		margin-right: 0;
-	}
+	margin-left: 0;
+	margin-right: 0;	
 }
 .col-rectangle{
 	background: rgba(57,82,92,0);
-	border-color: #4b616a;
-	border-style: solid;
+	
 	height: 150px;
 	cursor: pointer;
-	position: relative;
-	padding: 30px 20px;
+	position: relative;	
+	padding-left: 0;
+	padding-right: 0;
 	@media @smartphone{
 		height: 120px;
 	}
-	&-01, &-02, &-04, &-05{
-		border-width: 1px 0 0 1px;
+	& .rectangle{
+		padding: 20px 30px;
+	}	
+	@media @medium_mobile{
+		border-color: #4b616a;
+		border-style: solid;
 	}
-	&-03, &-06{
-		border-width: 1px 1px 0 1px;
-	}
-	&-07, &-08{
-		border-width: 1px 0 1px 1px;
-	}
-	&-09{
-		border-width: 1px 1px 1px 1px;
+	@media @medium{
+		&-01, &-02, &-04, &-05{
+			border-width: 1px 0 0 1px;
+		}
+		&-03, &-06{
+			border-width: 1px 1px 0 1px;
+		}
+		&-07, &-08{
+			border-width: 1px 0 1px 1px;
+		}
+		&-09{
+			border-width: 1px 1px 1px 1px;
+		}
 	}
 	@media @mobile_tablet{
 		&-01, &-03, &-05, &-07{
@@ -405,6 +423,7 @@ a:focus {  color: inherit; text-decoration: none;}
 			border-width: 1px 1px 0 1px;
 		}
 		&-09{
+			border-width: 1px 1px 1px 1px;
 			width: 100%;
 		}
 	}
@@ -434,6 +453,12 @@ a:focus {  color: inherit; text-decoration: none;}
 		font-size: 2.2rem;
 		position: relative;
 		z-index: 10;
+	}
+}
+.section-about{
+	background: #c8d4d9;
+	& .section-about-plus{
+		background: url(../img/bg-about2.png) no-repeat center top;
 	}
 }
 
