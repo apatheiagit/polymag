@@ -1,7 +1,7 @@
 $(function(){
-  $('.section').height($(window).height());
+  sectionHeight();
   $(window).resize(function(){
-    $('.section').height($(window).height());
+    sectionHeight();
   });
   $('.sandwitch').click(function(){
     $('.top-menu').toggleClass('top-menu--mobile-open');
@@ -19,4 +19,9 @@ $(function(){
       }, 400);
       return false;
   });
+  function sectionHeight() {
+    if ($(window).height() > 700){
+      $('.section').height($(window).height());
+    }
+  }
 })
