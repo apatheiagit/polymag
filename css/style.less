@@ -362,7 +362,7 @@ a:focus {  color: inherit; text-decoration: none;}
 }
 .section-services{
 	background: linear-gradient(to top, #38515b, #2e4650);
-	
+	position: relative;
 	& .section-services-plus{
 		background: url(../img/bg-solution.png) no-repeat center -48px;
 		
@@ -455,10 +455,100 @@ a:focus {  color: inherit; text-decoration: none;}
 		z-index: 10;
 	}
 }
+.solution-details{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 83.6%;
+	max-width: 1600px;
+	z-index: 200;
+	padding: 6.5rem 0;
+}
+.solution-detail{
+	background: url(../img/detaill-right.png) no-repeat right top @detail-fon;
+	box-shadow: 0 0 10px 4px rgba(12,23,28,.3), 0 0 25px 12px rgba(12,23,28,.3);
+	& .container{
+		background: url(../img/detaill-left.png) no-repeat left bottom;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	& .detail-content{
+		padding: 50px 15px;
+		position: relative;
+		& .number{
+			position: absolute;
+			z-index: 1;
+			font-size: 9rem;
+			font-weight: bold;
+			color: #9bbecc;
+			opacity: 1;
+			line-height: 1;
+			top: 50px;
+			right: 15px;
+		}
+		& .title{
+			color: @close-fon;
+			position: relative;
+			font-size: 3.8rem;
+			line-height: 4.5rem;
+			font-weight: bold;
+			margin-top: 5rem;
+			text-transform: uppercase;
+			z-index: 10;
+		}
+		& .subtitle{
+			color: @close-fon;
+			font-size: 2.8rem;
+			line-height: 3.8rem;			
+		}
+		& .announce{
+			color: @middle-blue;
+			margin: 4.8rem 0;
+			font-size: 20px;			
+			padding-left: 50px;
+			@media @mobile{
+				font-size: 18px;
+			}
+		}
+		& .addition{
+			color: @middle-blue;
+			font-size: 16px;	
+			padding-left: 50px;		
+		}
+	}
+}
+.close-buttn{
+	position: absolute;
+	height: 35px;
+	width: 35px;
+	top: 16px;
+	left: 0px;
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: @close-fon;
+	&:before, &:after{
+		content: "";
+		background-color: @detail-fon;
+		height: 1px;
+		width: 22px;
+		position: absolute;
+		left: 7px;
+		top: 16px;
+	}
+	&:before{		
+		-webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+	}
+	&:after{		
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+}
 .section-about{
 	background: #c8d4d9;
 	& .section-about-plus{
-		background: url(../img/bg-about2.png) no-repeat center top;
+		background: url(../img/bg-about2.png) repeat-x center top;
+
 	}
 }
 
