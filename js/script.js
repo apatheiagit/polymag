@@ -7,6 +7,7 @@ $(function(){
     $('.top-menu').toggleClass('top-menu--mobile-open');
   });
   $('.home-svg').addClass('animate');
+  $('.section-home').addClass('intro-started');
   $('.col-rectangle').click(function(){
     $('.solution-details').addClass('solution-details-open');
     var id = $(this).children('.rectangle').attr('data-detail');
@@ -29,9 +30,54 @@ $(function(){
       }, 400);
       return false;
   });
+  var paddingTop = '95px';
+  if ($(window).height() < 901){
+    paddingTop = '50px';
+  }
+  var speed = 1500;
+  var speed2 = 1500;
+  var mobile = detectmob();
+  if (!mobile){    
+    $('.page-layout').fullpage({            
+      anchors:['home', 'services', /*'about',*/ 'contact'],
+      verticalCentered: false,
+      menu: '.top-menu',
+      paddingTop: 0,
+      sectionSelector: '.section',
+      resize : false,
+      //scrollOverflow:true,
+      css3: true,
+      navigation: true,
+      navigationPosition: 'top',
+      afterLoad: function(anchorLink, index){
+        if(anchorLink == 'home'){
+         $('.top-menu').removeClass('top-menu--open');
+        }
+        if(anchorLink == 'services'){
+         $('.top-menu').addClass('top-menu--open');
+        }
+      }        
+    });
+  }
   function sectionHeight() {
     if ($(window).height() > 700){
       $('.section').height($(window).height());
     }
   }
-})
+});
+function detectmob() { 
+ if( navigator.userAgent.match(/Android/i)
+ || navigator.userAgent.match(/webOS/i)
+ || navigator.userAgent.match(/iPhone/i)
+ || navigator.userAgent.match(/iPad/i)
+ || navigator.userAgent.match(/iPod/i)
+ || navigator.userAgent.match(/BlackBerry/i)
+ || navigator.userAgent.match(/Windows Phone/i)
+ || $(window).width() < 768
+ ){
+    return true;
+  }
+ else {
+    return false;
+  }
+}

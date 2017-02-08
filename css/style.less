@@ -21,6 +21,7 @@
 @mobile_tablet: ~"(max-width: 992px)";
 @small_tablet: ~"(min-width: 451px) and (max-width: 767px)";
 @smartphone: ~"(max-width: 450px)";
+@ipad_pro: ~"(max-width: 1366px)";
 
 
 
@@ -107,12 +108,15 @@ a:focus {  color: inherit; text-decoration: none;}
 }
 .section-contacts{
 	position: relative;
-	height: 700px;
+	height: 750px;
 	& .top-container{
 		position: absolute;
 		top: 0;
 		z-index: 100;
 		width: 100%;
+	}
+	& .fp-scroller{
+		height: 100%;
 	}
 }
 .section-title{
@@ -187,6 +191,7 @@ a:focus {  color: inherit; text-decoration: none;}
 	padding: 13px 0;	
 	z-index: 200;
 	width: 100%;
+	transition: 0.5s all ease-in-out;
 	&--open{
 		top: 0;
 	}
@@ -273,16 +278,18 @@ a:focus {  color: inherit; text-decoration: none;}
 		@media @tablet{
 			padding: 2px 20px 0px 0;
 		}
+		&.active{
+			& a{
+				color: white !important;
+			}
+		}
 		& a{
 			color: @menu;
 			font-size: 16px;
 			transition: color 0.4s ease-in;
 			&:hover{
 				color: lighten(@menu,20%);
-			}
-			&.current{
-				color: white !important;
-			}
+			}			
 		}		
 	}
 }
@@ -347,6 +354,48 @@ a:focus {  color: inherit; text-decoration: none;}
 	}
 	@media @mobile{
 		min-height: 560px;
+	}
+	& h1{       
+    -webkit-transition-duration: 1.00s;
+    transition-duration: 1.00s;
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+    opacity: 0;
+    -webkit-transform: translate3d(0, 10px, 0);
+    -ms-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);        
+  }
+  & .nav{
+  	-webkit-transition-duration: 1.00s;
+    transition-duration: 1.00s;
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+    opacity: 0;
+    -webkit-transform: translate3d(-10px, 0, 0);
+    -ms-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);    
+  }
+	&.intro-started{
+		& h1{            
+	    -webkit-transition-property: opacity, -webkit-transform;
+	    transition-property: opacity, transform;
+	    -webkit-transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95),cubic-bezier(0.39, 0.575, 0.565, 1);
+	    transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95),cubic-bezier(0.39, 0.575, 0.565, 1);
+	    opacity: 1;
+	    -webkit-transform: translate3d(0, 0, 0);
+	    -ms-transform: translate3d(0, 0, 0);
+	    transform: translate3d(0, 0, 0);
+	  }
+	  & .nav{
+	  	-webkit-transition-property: opacity, -webkit-transform;
+	    transition-property: opacity, transform;
+	    -webkit-transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95),cubic-bezier(0.39, 0.575, 0.565, 1);
+	    transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95),cubic-bezier(0.39, 0.575, 0.565, 1);
+	    opacity: 1;
+	    -webkit-transform: translate3d(0, 0, 0);
+	    -ms-transform: translate3d(0, 0, 0);
+	    transform: translate3d(0, 0, 0);
+	  }
 	}
 	& .home-svg{
 		position: absolute;
@@ -424,15 +473,15 @@ a:focus {  color: inherit; text-decoration: none;}
 	background: linear-gradient(to top, #38515b, #2e4650);
 	position: relative;
 	& .section-services-plus{
-		background: url(../img/bg-solution.png) no-repeat center -48px;
-		
+		background: url(../img/bg-solution.png) no-repeat center -30px;		
 		height: 100%;
 		@media @medium_mobile{
 			background-size: contain;
 		}
 		& .container{
-			background: url(../img/line.png) no-repeat center -42px;
+			background: url(../img/line.png) no-repeat center -22px;
 			padding-bottom: 40px;
+			min-height: 100%;
 			@media @medium_mobile{
 				background: none;
 			}
@@ -444,8 +493,7 @@ a:focus {  color: inherit; text-decoration: none;}
 	margin-right: 0;	
 }
 .col-rectangle{
-	background: rgba(57,82,92,0);
-	
+	background: rgba(57,82,92,0);	
 	height: 150px;
 	cursor: pointer;
 	position: relative;	
@@ -525,6 +573,9 @@ a:focus {  color: inherit; text-decoration: none;}
 	padding: 6.5rem 0;
 	overflow: hidden;
 	z-index: 0;
+	@media @ipad_pro{
+		width: 100%;
+	}
 	@media @medium_mobile{
 		width: 100%;
 	}
@@ -533,6 +584,10 @@ a:focus {  color: inherit; text-decoration: none;}
 	}
 	&-open{
 		z-index: 500;
+		overflow: visible;
+		@media @medium_mobile{
+			overflow: hidden;
+		}
 		& .solution-details-wrap{
 			-webkit-transform: translateX(0);
 	    -ms-transform: translateX(0);
