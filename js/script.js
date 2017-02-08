@@ -6,6 +6,7 @@ $(function(){
   $('.sandwitch').click(function(){
     $('.top-menu').toggleClass('top-menu--mobile-open');
   });
+  $('.home-svg').addClass('animate');
   $('.col-rectangle').click(function(){
     $('.solution-details').addClass('solution-details-open');
     var id = $(this).children('.rectangle').attr('data-detail');
