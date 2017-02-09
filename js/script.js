@@ -39,7 +39,7 @@ $(function(){
   var mobile = detectmob();
   if (!mobile){    
     $('.page-layout').fullpage({            
-      anchors:['home', 'services', /*'about',*/ 'contact'],
+      anchors:['home', 'services', 'about', 'contact'],
       verticalCentered: false,
       menu: '.top-menu',
       paddingTop: 0,
