@@ -17,6 +17,11 @@ $(function(){
   $('.close-buttn').click(function(){
     $('.solution-details').removeClass('solution-details-open');
   });
+  $('.people-small .item').click(function(){
+    $('.people-small .item').not(this).toggleClass('disappear');
+    $(this).toggleClass('active');
+
+  });  
   $(window).scroll(function () {
       if ($(this).scrollTop() > 0) {
           $('.icon-to-top').fadeIn();
