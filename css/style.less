@@ -755,7 +755,8 @@ a:focus {  color: inherit; text-decoration: none;}
 	& .section-about-plus{
 		background: url(../img/bg-about2.png) repeat-x center top;
 		height: 100%;
-			min-height: 100%;
+		min-height: 100%;
+		padding-top: 18.0rem;
 		& .container{
 			position: relative;
 			height: 100%;
@@ -777,7 +778,7 @@ a:focus {  color: inherit; text-decoration: none;}
 		float: left;
 		text-align: center;
 		transition: .5s opacity ease-in-out;
-		//position: relative;
+		position: relative;
 		//z-index: 100;
 		&:hover{
 			background-color: #b3c8d0;
@@ -785,7 +786,8 @@ a:focus {  color: inherit; text-decoration: none;}
 		&.disappear{
 			opacity: 0;
 			width: 0;
-			display: none;
+			//display: none;
+			height: 0;
 		}
 		&.active{
 			position: absolute;	
@@ -802,17 +804,18 @@ a:focus {  color: inherit; text-decoration: none;}
 				display: none;
 			}
 			& .detail-block{
-				float: right;
-				display: block;
+				float: right;				
+				transform: translate(0, 0);	
+				opacity: 1;
+   			height: auto;
+   			margin-top: 7.0rem;
 			}
 			& .photo{
 				float: left;
 				width: 50%;
+				transform: scale(1.1);
 			}
 		}
-	}
-	& .detail-block{
-		display: none;
 	}
 	& .name{
 		color: #29424b;
@@ -839,6 +842,7 @@ a:focus {  color: inherit; text-decoration: none;}
 		}
 	}
 	& .photo{
+		transition: .5s all ease-in-out;
 		& img{
 			max-width: 100%;
 		}
@@ -851,7 +855,11 @@ a:focus {  color: inherit; text-decoration: none;}
 		position: relative;
 		width: 50%;
 		text-align: left;
-		margin-top: 7.0rem;
+		opacity: 0; 
+    height: 0;
+    //overflow: hidden;
+		transform: translate(10px, 10px);		
+		transition: .5s transform ease-in-out;
 		& .number{
 			font-size: 10.5rem;
 			color: @light-gray;

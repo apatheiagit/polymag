@@ -22,6 +22,11 @@ $(function(){
     $(this).toggleClass('active');
 
   });  
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) { 
+      $('.solution-details').removeClass('solution-details-open');
+    }
+  });
   $(window).scroll(function () {
       if ($(this).scrollTop() > 0) {
           $('.icon-to-top').fadeIn();
@@ -58,7 +63,7 @@ $(function(){
         if(anchorLink == 'home'){
          $('.top-menu').removeClass('top-menu--open');
         }
-        if(anchorLink == 'services'){
+        if(anchorLink == 'services' || anchorLink == 'about' || anchorLink == 'contact'){
          $('.top-menu').addClass('top-menu--open');
         }
       }        
