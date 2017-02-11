@@ -20,15 +20,16 @@ $(function(){
   });
 
   $('.people-small .item .container-block').click(function(){
-    if($(this).parent().hasClass('active')){
-      $(this).parent().removeClass('active');
-      $('.people-small .item').removeClass('disappear');
-      //setTimeout(function(){ $('.people-small .item').removeClass('disappear');}, 100);
-    }else{
-      $('.people-small .item').addClass('disappear');
-      $(this).parent().removeClass('disappear').addClass('active');
+    if (!mobile){ 
+      if($(this).parent().hasClass('active')){
+        $(this).parent().removeClass('active');
+        $('.people-small .item').removeClass('disappear');
+        //setTimeout(function(){ $('.people-small .item').removeClass('disappear');}, 100);
+      }else{
+        $('.people-small .item').addClass('disappear');
+        $(this).parent().removeClass('disappear').addClass('active');
+      }
     }
-
     //$('.people-small .item').not(this).toggleClass('disappear');
     //$(this).toggleClass('active');
   });
