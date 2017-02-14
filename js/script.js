@@ -9,6 +9,7 @@ $(function(){
   $('.section-home').addClass('intro-started');
   
   $('.col-rectangle').click(function(){
+    $('.solution-details').css('zIndex', 500);
     $('.solution-details').addClass('solution-details-open');
     var id = $(this).children('.rectangle').attr('data-detail');
     $('.solution-detail').hide();
@@ -17,6 +18,7 @@ $(function(){
 
   $('.close-buttn').click(function(){
     $('.solution-details').removeClass('solution-details-open');
+    setTimeout(function(){ $('.solution-details').css('zIndex', 0);}, 200); 
   });
 
   $('.people-small .item .container-block').click(function(){

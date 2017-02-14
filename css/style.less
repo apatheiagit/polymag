@@ -81,8 +81,9 @@ a:focus {  color: inherit; text-decoration: none;}
 	overflow: hidden;
 	position: relative;
 	padding-bottom: 10px;
+	padding-left: 40px;
 	font-size: 16px;
-	&:before{
+	&:after{
 		background-color: @blue;
 		content: "";
 		position: absolute;
@@ -92,9 +93,22 @@ a:focus {  color: inherit; text-decoration: none;}
 		bottom: 0;
 		transition: all .4s;
 	}
+	&:before{
+		content: "";
+		background: url(../img/arrow-dark.png) no-repeat left center;
+		width: 31px;
+		height: 22px;
+		position: absolute;
+		top: 0;
+		left: -31px;
+		transition: all 0.4s linear;
+	}
 	&:hover{
-		&:before{
+		&:after{
 			background-color: darken(@blue, 20%);
+		}
+		&:before{
+			left: 0;
 		}
 	}
 }
@@ -514,14 +528,26 @@ a:focus {  color: inherit; text-decoration: none;}
 	position: relative;	
 	padding-left: 0;
 	padding-right: 0;
-	transition: 0.5s all ease-in-out;
-	-webkit-transform: translateZ(0) scale(1);
-  transform: translateZ(0) scale(1);
+	
 	@media @smartphone{
 		height: 120px;
 	}
 	& .rectangle{
+		height: 100%;
+		width: 100%;
 		padding: 20px 30px;
+		position: relative;	
+		border-style: solid;
+		border-color: transparent;
+		border-width: 1px 1px 1px 1px;
+		transition: 0.4s all ease-in-out;
+	  &:hover{
+	  	border-color: #4b616a;
+	  	
+			background: #3b5865;
+			box-shadow: 0 0 10px 4px rgba(12,23,28,.15), 0 0 25px 12px rgba(12,23,28,.15);
+			z-index: 10;			
+		}
 	}	
 	@media @notebook{
 		height: 140px;
@@ -529,24 +555,21 @@ a:focus {  color: inherit; text-decoration: none;}
 	@media @medium_mobile{
 		height: 150px;
 	}
-	//@media @medium_mobile{
-		border-color: #4b616a;
-		border-style: solid;
-	//}
-	//@media @medium{
-		&-01, &-02, &-04, &-05{
-			border-width: 1px 0 0 1px;
-		}
-		&-03, &-06{
-			border-width: 1px 1px 0 1px;
-		}
-		&-07, &-08{
-			border-width: 1px 0 1px 1px;
-		}
-		&-09{
-			border-width: 1px 1px 1px 1px;
-		}
-	//}
+	border-color: #4b616a;
+	border-style: solid;
+	//border-width: 1px 1px 1px 1px;
+	&-01, &-02, &-04, &-05{
+		border-width: 1px 0 0 1px;
+	}
+	&-03, &-06{
+		border-width: 1px 1px 0 1px;
+	}
+	&-07, &-08{
+		border-width: 1px 0 1px 1px;
+	}
+	&-09{
+		border-width: 1px 1px 1px 1px;
+	}
 	@media @mobile_tablet{
 		&-01, &-03, &-05, &-07{
 			border-width: 1px 0 0 1px;
@@ -564,16 +587,7 @@ a:focus {  color: inherit; text-decoration: none;}
 			border-width: 1px 1px 0 1px;
 		}
 	}
-	&:hover{
-		//background: linear-gradient(to right, #22404d, #1a3642);
-		background: #22404d;
-		box-shadow: 0 0 10px 4px rgba(12,23,28,.3), 0 0 25px 12px rgba(12,23,28,.3);
-		border-color: #193541;
-		//border-width: 1px 1px 1px 1px;
-		z-index: 10;
-		-webkit-transform: translate3d(-.5px,-.1px,0) scale(1.02);
-    transform: translate3d(-.5px,-.1px,0) scale(1.02);
-	}
+	
 	& .number{
 		position: absolute;
 		z-index: 1;
@@ -588,6 +602,9 @@ a:focus {  color: inherit; text-decoration: none;}
 		font-size: 2.2rem;
 		position: relative;
 		z-index: 10;
+		-webkit-transform: scale(1);
+	  transform: scale(1);
+	  transition: 0.1s all ease-in-out;
 	}
 }
 .solution-details{	
@@ -597,7 +614,7 @@ a:focus {  color: inherit; text-decoration: none;}
 	width: 83.6%;
 	max-width: 1600px;	
 	overflow: hidden;
-	z-index: 0;
+	z-index: 500;
 	@media @ipad_pro{
 		width: 100%;
 	}
@@ -609,7 +626,7 @@ a:focus {  color: inherit; text-decoration: none;}
 	}
 	&-open{
 		z-index: 500;
-		padding: 6.5rem 0;
+		padding: 9rem 0 0 0;
 		overflow: visible;
 		@media @medium_mobile{
 			overflow: hidden;
@@ -645,6 +662,7 @@ a:focus {  color: inherit; text-decoration: none;}
 		margin-left: 0;
 		margin-right: 0;
 		height: 730px;
+		
 		@media @mobile_tablet{
 			height: auto;
 			min-height: 730px;
@@ -652,7 +670,22 @@ a:focus {  color: inherit; text-decoration: none;}
 		@media @medium_mobile{
 			min-height: 1000px;
 		}
+		display: table;
+		width: 100%;
+		& .row{
+			height: 100%;
+    	display: table-row;
+		}
+		& .col-md-6.col-xs-12{
+			height: 100%;
+			display: table-cell;
+  		float: none;
+		}
+		& .col-left{
+			border-right: 1px solid #94b7c5;
+		}
 	}
+	
 	& .detail-content{
 		padding: 5.0rem 15px;
 		position: relative;
@@ -759,10 +792,10 @@ a:focus {  color: inherit; text-decoration: none;}
 .section-about{
 	background: #c8d4d9;
 	& .section-about-plus{
-		background: url(../img/bg-about2.png) repeat-x center top;
+		background: url(../img/bg-about2.png) repeat-x center -100px;
 		height: 100%;
 		min-height: 100%;
-		padding-top: 18.0rem;
+		//padding-top: 18.0rem;
 		@media @notebook{
 			background-position: center -180px;
 			padding-top: 0;
@@ -830,6 +863,7 @@ a:focus {  color: inherit; text-decoration: none;}
 			height: 0;
 		}
 		&.active{
+			cursor: url(../img/close.png), move;
 			position: absolute;	
 			background-color: transparent;		
 			z-index: 200;
