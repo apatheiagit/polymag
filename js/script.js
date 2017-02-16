@@ -9,6 +9,7 @@ $(function(){
   $('.section-home').addClass('intro-started');
   
   $('.col-rectangle').click(function(){
+    $('.section-services').css('zIndex', 500);
     $('.solution-details').css('zIndex', 500);
     $('.solution-details').addClass('solution-details-open');
     var id = $(this).children('.rectangle').attr('data-detail');
@@ -18,6 +19,7 @@ $(function(){
 
   $('.close-buttn').click(function(){
     $('.solution-details').removeClass('solution-details-open');
+    $('.section-services').css('zIndex', 100);
     setTimeout(function(){ $('.solution-details').css('zIndex', 0);}, 200); 
   });
 
@@ -46,14 +48,18 @@ $(function(){
   $(document).keyup(function(e) {
     if (e.keyCode == 27) { 
       $('.solution-details').removeClass('solution-details-open');
+      $('.section-services').css('zIndex', 100);
+      setTimeout(function(){ $('.solution-details').css('zIndex', 0);}, 200); 
     }
   });
 
+  var services = $('.section-services').offset().top - 60;
+
   $(window).scroll(function () {
-      if ($(this).scrollTop() > 0) {
-          $('.icon-to-top').fadeIn();
+      if ($(this).scrollTop() > services) {
+        $('.top-menu').addClass('top-menu--open');
       } else {
-          $('.icon-to-top').fadeOut();
+        $('.top-menu').removeClass('top-menu--open');
       }
   });
 
