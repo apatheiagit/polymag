@@ -71,7 +71,7 @@ $(function(){
   var speed = 1500;
   var speed2 = 1500;
   var mobile = detectmob();
-  if (!mobile){    
+  /*if (!mobile){    
     $('.page-layout').fullpage({            
       anchors:['home', 'services', 'about', 'contact'],
       verticalCentered: false,
@@ -92,7 +92,7 @@ $(function(){
         }
       }        
     });
-  }
+  }*/
   function sectionHeight() {
     if ($(window).height() > 700){
       $('.section').height($(window).height());
