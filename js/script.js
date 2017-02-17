@@ -63,11 +63,19 @@ $(function(){
       }
   });
 
-  $('.icon-to-top').click(function () {
+  $('.logo-small a').click(function () {
       $('body,html').animate({
           scrollTop: 0
       }, 400);
       return false;
+  });
+
+  $('.nav a').click(function(){
+        $('.nav a.active').not(this).removeClass('active');
+        $(this).addClass('active');
+        var target = $(this).attr('href');
+        $('html, body').animate({scrollTop: $(target).offset().top - 70}, 700);
+        return false; 
   });
 
   var paddingTop = '95px';
