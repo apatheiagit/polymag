@@ -78,40 +78,6 @@ $(function(){
         return false; 
   });
 
-  var paddingTop = '95px';
-  if ($(window).height() < 901){
-    paddingTop = '50px';
-  }
-  var speed = 1500;
-  var speed2 = 1500;
-  var mobile = detectmob();
-  /*if (!mobile){    
-    $('.page-layout').fullpage({            
-      anchors:['home', 'services', 'about', 'contact'],
-      verticalCentered: false,
-      menu: '.top-menu',
-      paddingTop: 0,
-      sectionSelector: '.section',
-      resize : false,
-      //scrollOverflow:true,
-      css3: true,
-      navigation: true,
-      navigationPosition: 'top',
-      afterLoad: function(anchorLink, index){
-        if(anchorLink == 'home'){
-         $('.top-menu').removeClass('top-menu--open');
-        }
-        if(anchorLink == 'services' || anchorLink == 'about' || anchorLink == 'contact'){
-         $('.top-menu').addClass('top-menu--open');
-        }
-      }        
-    });
-  }*/
-  function sectionHeight() {
-    if ($(window).height() > 700){
-      $('.section').height($(window).height());
-    }
-  }
 });
 function detectmob() { 
  if( navigator.userAgent.match(/Android/i)
