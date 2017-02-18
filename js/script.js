@@ -1,5 +1,12 @@
 $(function(){
 
+  $('#services .section-title').css({visibility:"hidden"}).removeClass('animated fadeInUp');
+  $('.col-rectangle').css({visibility:"hidden"}).removeClass('animated fadeInUp');
+  $('#about .section-title').css({visibility:"hidden"}).removeClass('animated fadeInRight');
+  $('.people-small .item').css({visibility:"hidden"}).removeClass('animated fadeInUp');
+  $('#contact .section-title').css({visibility:"hidden"}).removeClass('animated fadeInLeft'); 
+  $('.contacts-block').css({visibility:"hidden"}).removeClass('animated fadeInUp');  
+
   $('.sandwitch').click(function(){
     $('.top-menu').toggleClass('top-menu--mobile-open');
   });
@@ -22,6 +29,8 @@ $(function(){
     $('.section-services').css('zIndex', 100);
     setTimeout(function(){ $('.solution-details').css('zIndex', 0);}, 200); 
   });
+
+  var mobile = detectmob();
 
   $('.people-small .item .container-block').click(function(){
     if (!mobile){ 
@@ -56,11 +65,12 @@ $(function(){
   var services = $('.section-services').offset().top - 60;
 
   $(window).scroll(function () {
-      if ($(this).scrollTop() > services) {
-        $('.top-menu').addClass('top-menu--open');
-      } else {
-        $('.top-menu').removeClass('top-menu--open');
-      }
+    animateAll();
+    if ($(this).scrollTop() > services) {
+      $('.top-menu').addClass('top-menu--open');
+    } else {
+      $('.top-menu').removeClass('top-menu--open');
+    }
   });
 
   $('.logo-small a').click(function () {
@@ -71,13 +81,59 @@ $(function(){
   });
 
   $('.nav a').click(function(){
-        $('.nav a.active').not(this).removeClass('active');
-        $(this).addClass('active');
-        var target = $(this).attr('href');
-        $('html, body').animate({scrollTop: $(target).offset().top - 70}, 700);
-        return false; 
+    $('.nav a.active').not(this).removeClass('active');
+    $(this).addClass('active');
+    var target = $(this).attr('href');
+    $('html, body').animate({scrollTop: $(target).offset().top - 70}, 700);
+    return false; 
   });
+  
+  var winHeight = $(window).height();
+  function animateAll(){
+    var scrollTop = $(window).scrollTop();  
+    
+    var chapter0 =  $('#home').offset().top;
+    var chapter1 =  $('#services').offset().top;   
+    var chapter2 =  $('.container-about').offset().top;
+    var chapter2_1 =  $('.people-small .item').offset().top;
+    var chapter3 =  $('#contact').offset().top; 
+    var chapter3_1 =  $('.contacts-block').offset().top;   
 
+    if (winHeight > 1080){
+      setTimeout(function(){ $('#services .section-title').addClass('animated fadeInUp'); }, 300);
+    }else 
+    if((scrollTop + winHeight) >= chapter1){
+      $('#services .section-title').css({visibility:"visible"}).addClass('animated fadeInUp'); 
+      $('.col-rectangle').css({visibility:"visible"}).addClass('animated fadeInUp');  
+    }  
+
+    if((scrollTop + winHeight) >= chapter2){ 
+      $('#about .section-title').css({visibility:"visible"}).addClass('animated fadeInUp');
+    }  
+
+    if((scrollTop + winHeight) >= chapter2_1){ 
+      $('.people-small .item').css({visibility:"visible"}).addClass('animated fadeInUp');
+    }   
+
+    if((scrollTop + winHeight) >= chapter3){
+      $('#contact .section-title').css({visibility:"visible"}).addClass('animated fadeInUp');
+    }
+
+    if((scrollTop + winHeight) >= chapter3_1){
+      $('.contacts-block').css({visibility:"visible"}).addClass('animated fadeInUp');     
+    }
+
+    if ( scrollTop == 0 ) {
+      $('#services .section-title').css({visibility:"hidden"}).removeClass('animated fadeInUp');
+      $('.col-rectangle').css({visibility:"hidden"}).removeClass('animated fadeInUp'); 
+      $('#about .section-title').css({visibility:"hidden"}).removeClass('animated fadeInUp');
+      $('.people-small .item').css({visibility:"hidden"}).removeClass('animated fadeInUp');
+      $('#contact .section-title').css({visibility:"hidden"}).removeClass('animated fadeInUp'); 
+      $('.contacts-block').css({visibility:"hidden"}).removeClass('animated fadeInUp');    
+
+    }
+
+  }
 });
 function detectmob() { 
  if( navigator.userAgent.match(/Android/i)
