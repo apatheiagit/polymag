@@ -1,7 +1,7 @@
 $(function(){
 
   $('#services .section-title').css({visibility:"hidden"}).removeClass('animated fadeInUp');
-  $('.col-rectangle').css({visibility:"hidden"}).removeClass('animated fadeInUp');
+  $('.rectangle-list').css({visibility:"hidden"}).removeClass('animated fadeInUp');
   $('#about .section-title').css({visibility:"hidden"}).removeClass('animated fadeInRight');
   $('.people-small .item').css({visibility:"hidden"}).removeClass('animated fadeInUp');
   $('#contact .section-title').css({visibility:"hidden"}).removeClass('animated fadeInLeft'); 
@@ -107,7 +107,7 @@ $(function(){
     }else 
     if((scrollTop + winHeight) >= chapter1){
       $('#services .section-title').css({visibility:"visible"}).addClass('animated fadeInUp'); 
-      $('.col-rectangle').css({visibility:"visible"}).addClass('animated fadeInUp');  
+      $('.rectangle-list').css({visibility:"visible"}).addClass('animated fadeInUp');  
     }  
 
     if((scrollTop + winHeight) >= chapter2){ 
@@ -128,7 +128,7 @@ $(function(){
 
     if ( scrollTop == 0 ) {
       $('#services .section-title').css({visibility:"hidden"}).removeClass('animated fadeInUp');
-      $('.col-rectangle').css({visibility:"hidden"}).removeClass('animated fadeInUp'); 
+      $('.rectangle-list').css({visibility:"hidden"}).removeClass('animated fadeInUp'); 
       $('#about .section-title').css({visibility:"hidden"}).removeClass('animated fadeInUp');
       $('.people-small .item').css({visibility:"hidden"}).removeClass('animated fadeInUp');
       $('#contact .section-title').css({visibility:"hidden"}).removeClass('animated fadeInUp'); 
