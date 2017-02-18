@@ -476,6 +476,7 @@ a:focus {  color: inherit; text-decoration: none;}
 		}
 		@media @medium_mobile{
 			left: 0px;
+			margin-left: 0px;
 		}
 		
 		& .cls-1{fill:#90b5c6;}
@@ -703,7 +704,7 @@ a:focus {  color: inherit; text-decoration: none;}
 
 .solution-details{	
 	position: absolute;
-	top: 0;
+	top: 9rem;
 	right: 0;
 	width: 83.6%;
 	max-width: 1600px;	
@@ -720,7 +721,6 @@ a:focus {  color: inherit; text-decoration: none;}
 	}
 	&-open{
 		z-index: 500;
-		padding: 9rem 0 0 0;
 		overflow: visible;
 		@media @medium_mobile{
 			overflow: hidden;
@@ -777,6 +777,9 @@ a:focus {  color: inherit; text-decoration: none;}
 			height: 100%;
 			display: table-cell;
   		float: none;
+  		@media @mobile{
+  			display: block;
+  		}
 		}
 		& .col-left{
 			border-right: 1px solid #94b7c5;

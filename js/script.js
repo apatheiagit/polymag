@@ -52,6 +52,7 @@ $(function(){
     $('.people-small .item').addClass('disappear');
     $(this).parent().removeClass('active').addClass('disappear');
     $('.item-'+next).removeClass('disappear').addClass('active');
+
   }); 
 
   $(document).keyup(function(e) {
@@ -74,13 +75,15 @@ $(function(){
   });
 
   $('.logo-small a').click(function () {
-      $('body,html').animate({
-          scrollTop: 0
-      }, 400);
-      return false;
+    $('.top-menu').toggleClass('top-menu--mobile-open');
+    $('body,html').animate({
+        scrollTop: 0
+    }, 400);
+    return false;
   });
 
   $('.nav a').click(function(){
+    $('.top-menu').toggleClass('top-menu--mobile-open');
     $('.nav a.active').not(this).removeClass('active');
     $(this).addClass('active');
     var target = $(this).attr('href');
