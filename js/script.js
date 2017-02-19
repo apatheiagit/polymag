@@ -7,6 +7,12 @@ $(function(){
   $('#contact .section-title').css({visibility:"hidden"}).removeClass('animated fadeInLeft'); 
   $('.contacts-block').css({visibility:"hidden"}).removeClass('animated fadeInUp');  
 
+  sectionHeight();
+  $(window).resize(function(){
+    sectionHeight();
+  });
+
+
   $('.sandwitch').click(function(){
     $('.top-menu').toggleClass('top-menu--mobile-open');
   });
@@ -101,10 +107,7 @@ $(function(){
     var chapter2_1 =  $('.people-small .item').offset().top;
     var chapter3 =  $('#contact').offset().top; 
     var chapter3_1 =  $('.contacts-block').offset().top;   
-
-    if (winHeight > 1080){
-      setTimeout(function(){ $('#services .section-title').addClass('animated fadeInUp'); }, 300);
-    }else 
+ 
     if((scrollTop + winHeight) >= chapter1){
       $('#services .section-title').css({visibility:"visible"}).addClass('animated fadeInUp'); 
       $('.rectangle-list').css({visibility:"visible"}).addClass('animated fadeInUp');  
@@ -132,10 +135,11 @@ $(function(){
       $('#about .section-title').css({visibility:"hidden"}).removeClass('animated fadeInUp');
       $('.people-small .item').css({visibility:"hidden"}).removeClass('animated fadeInUp');
       $('#contact .section-title').css({visibility:"hidden"}).removeClass('animated fadeInUp'); 
-      $('.contacts-block').css({visibility:"hidden"}).removeClass('animated fadeInUp');    
-
+      $('.contacts-block').css({visibility:"hidden"}).removeClass('animated fadeInUp'); 
     }
-
+  }
+  function sectionHeight() {
+    $('.section-home').height($(window).height());
   }
 });
 function detectmob() { 
